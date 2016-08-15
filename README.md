@@ -10,10 +10,19 @@ To use this script you should have the aws cli tools installed, if you're runnin
 need to provide an access-key and serect-access-key to the aws cli tools. More information can be found here....
 
 If you're running this from an instance in ec2, a role should be assigned at boot to the instance that has permissions
-to access the ec2 api. An example policy to assign to the role is below (you should update this to disallow any services not required and no as full access in this example).
+to access the ec2 api. An example policy to assign to the role is below (you should update this to disallow any services not required and not as full access in this example).
 
 ```
-Policy here
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "ec2:*",
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 Also you need the curl command and perl installed - I will assume you know how to do this.
